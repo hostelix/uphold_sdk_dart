@@ -13,9 +13,9 @@ String normalizeURI(String uri) {
   return uri[0] != '/' ? uri : uri.substring(1);
 }
 
-String buildUrl(String baseUrl, String uri, {String version = '', Map<String, String> queryParams) {
+Uri buildUrl(String baseUrl, String uri, {String version = '', Map<String, String> queryParams) {
   String resource = version.isNotEmpty ? '$uri/$version' : uri;
-  return Uri.https(baseUrl, normalizeURI(resource), queryParams).toString();
+  return Uri.https(baseUrl, normalizeURI(resource), queryParams);
 }
 
 String buildBody(Map<String, String> data){
